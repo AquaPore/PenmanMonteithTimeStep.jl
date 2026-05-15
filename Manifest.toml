@@ -1,0 +1,10 @@
+# This file is machine-generated - editing it directly is not advised
+
+julia_version = "1.12.6"
+manifest_format = "2.0"
+project_hash = "06c8777ae2b86ed1950488b0a09baa93b7194793"
+
+[[deps.PenmanMonteithTimeStep]]
+path = "."
+uuid = "010633da-7846-407b-8efb-ad6d96316e66"
+version = "1.0.0-DEV"
