@@ -1,14 +1,3 @@
-```@meta
-CurrentModule = PenmanMonteithTimeStep
-```
+# PenmanMonteithTimeStep.jl
 
-# PenmanMonteithTimeStep 2
-
-Documentation for2 [PenmanMonteithTimeStep](https://github.com/AquaPore/PenmanMonteithTimeStep.jl).
-
-```@index
-```
-test
-```@autodocs
-Modules = [PenmanMonteithTimeStep]
-```
+Documentation for PenmanMonteithTimeStep.jl
