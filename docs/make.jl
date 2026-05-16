@@ -1,15 +1,25 @@
+using PenmanMonteithTimeStep
 using Documenter
-# using PenmanMonteithTimeStep
 
-makedocs(
-    sitename = "PenmanMonteithTimeStep",
-    format = Documenter.HTML(),
-    modules = [PenmanMonteithTimeStep]
+DocMeta.setdocmeta!(PenmanMonteithTimeStep, :DocTestSetup, :(using PenmanMonteithTimeStep); recursive=true)
+
+makedocs(;
+    modules=[PenmanMonteithTimeStep],
+    authors="“AquaPore” <“pollacco.water@gmail.com”> and contributors",
+    sitename="PenmanMonteithTimeStep.jl",
+    warnonly = [:missing_docs], # otherwise making docs will throw on missing docstrings
+    format=Documenter.HTML(;
+        canonical="https://AquaPore.github.io/PenmanMonteithTimeStep.jl",
+        edit_link="master",
+        assets=String[],
+    ),
+    pages=[
+        "Home" => "index.md",
+    ],
 )
 
-# Documenter can also automatically deploy documentation to gh-pages.
-# See "Hosting Documentation" and deploydocs() in the Documenter manual
-# for more information.
-#=deploydocs(
-    repo = "<repository url>"
-)=#
+
+deploydocs(;
+    repo="github.com/AquaPore/PenmanMonteithTimeStep.jl",
+    devbranch="master",
+)
