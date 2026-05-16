@@ -1,2 +1,17 @@
 /docs/Manifest*.toml
 /docs/build/
+
+
+# Packaging stuff
+# *.jl.*.cov
+# *.jl.cov
+# *.jl.mem
+# *.jl.*.mem
+
+# CL.yml
+# *.ipynb
+/.vscode/
+
+/Other/
+/Data/
+
