@@ -23,3 +23,5 @@ deploydocs(;
     repo="github.com/AquaPore/PenmanMonteithTimeStep.jl",
     devbranch="master",
 )
+
+# checkdocs=:exports
