@@ -15,6 +15,9 @@ makedocs(;
     ),
     pages=[
         "Home" => "index.md",
+        "Quickstart" => [
+            "GettingStarted1" => "GettingStarted_1.md",
+            "GettingStarted2" => "GettingStarted_2.md",],
     ],
 )
 
