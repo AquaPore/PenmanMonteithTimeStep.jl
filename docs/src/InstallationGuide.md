@@ -19,7 +19,7 @@ using PenmanMonteithHourly
 
 ### Running the model with examples
 
-#### Step 1 :
+#### Step 1
 
 **The following climate input csv data file can be downloaded:**
 
@@ -40,7 +40,7 @@ download(Csv_url, Csv_path)
 
 ```
 
-#### Step 2 :
+#### Step 2
 
 **The following example input [toml](https://toml.io/en/) file can be downloaded:**
 
@@ -59,15 +59,15 @@ Toml_url = "https://raw.githubusercontent.com/AquaPore/PenmanMonteithHourly.jl/r
 download(Toml_url, Toml_path)
 ```
 
-#### Step 3 :
+#### Step 3
 
 Modify the toml [path] to get the correct names of the files
 
-#### Step 4 :
+#### Step 4
 
 Run the code
 
-```
+```julia
 Path_Toml = raw"D:\JOE\MAIN\MODELS\PenmanMonteithHourly.jl\DATA\INPUT\Timoleague\Timoleague_PetOption.toml"
 
 DayHour, DayHour_Reduced, Pet_Obs, Pet_Obs_Reduced, Pet_Sim, Pet_Sim_Reduced = PenmanMonteithHourly.PENMAN_MONTEITH_HOURLY_RUN(;Path_Toml, α = 0.23, 🎏_Debug=false);
