@@ -14,8 +14,7 @@ makedocs(;
         assets=String[],
     ),
     pages=[
-        "Home" => "KeyFeatures.md",
-
+        "KeyFeatures.md",
         "Quickstart" => [
             "Installation Guide & examples" => "InstallationGuide.md",
             "Input output" => "Input Output Data.md"],
