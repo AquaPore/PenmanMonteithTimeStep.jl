@@ -5,7 +5,7 @@ DocMeta.setdocmeta!(PenmanMonteithTimeStep, :DocTestSetup, :(using PenmanMonteit
 
 makedocs(;
     modules=[PenmanMonteithTimeStep],
-    authors="“AquaPore” <“pollacco.water@gmail.com”> and contributors",
+    authors="AquaPore <pollacco.water@gmail.com> and contributors",
     sitename="PenmanMonteithTimeStep.jl",
     warnonly = [:missing_docs], # otherwise making docs will throw on missing docstrings
     format=Documenter.HTML(;
