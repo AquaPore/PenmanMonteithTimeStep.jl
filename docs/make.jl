@@ -11,13 +11,12 @@ makedocs(;
     format=Documenter.HTML(;
         canonical="https://AquaPore.github.io/PenmanMonteithTimeStep.jl",
         edit_link="master",
-        assets=String[],
-    ),
+        assets=String[], ),
     pages=[
         "KeyFeatures.md",
         "Quickstart" => [
             "Installation Guide & examples" => "InstallationGuide.md",
-            "Input output" => "Input Output Data.md",],
+            "Input output" => "InputOutputData.md",],
 
         "Model" => [
             "PenmanMonteith Equations" => "Equations.md",
