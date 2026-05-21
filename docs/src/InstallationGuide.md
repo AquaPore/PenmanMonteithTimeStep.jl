@@ -1,9 +1,3 @@
-# **PenmanMonteithHourly**
-
-Computes Potential Evapotranspiration by using the algorithm of Penman-Monteith FAO 56 [FAO56](https://www.fao.org/4/x0490e/x0490e00.htm)
-
-*"The so-called reference crop evapotranspiration or reference evapotranspiration, denoted as potential evapotranspiration ETp. The reference surface is a hypothetical grass reference crop with an assumed a fixed crop height, a fixed surface resistance and a fixed albedo. The reference surface closely resembles an extensive surface of green, well-watered grass of uniform height, actively growing and completely shading the ground. The fixed surface resistance implies a moderately dry soil surface resulting from about a weekly irrigation frequency"*
-
 ## Quick start
 
 ### Installing the package
@@ -25,7 +19,7 @@ using PenmanMonteithHourly
 
 ### Running the model with examples
 
-#### Step 1:
+#### Step 1 :
 
 **The following climate input csv data file can be downloaded:**
 
@@ -46,7 +40,7 @@ download(Csv_url, Csv_path)
 
 ```
 
-#### Step 2:
+#### Step 2 :
 
 **The following input [toml](https://toml.io/en/) file can be downloaded:**
 
@@ -65,11 +59,11 @@ Toml_url = "https://raw.githubusercontent.com/AquaPore/PenmanMonteithHourly.jl/r
 download(Toml_url, Toml_path)
 ```
 
-#### Step 3:
+#### Step 3 :
 
 Modify the toml [path] to get the correct names of the files
 
-#### Step 4:
+#### Step 4 :
 
 Run the code
 
@@ -78,5 +72,3 @@ Path_Toml = raw"D:\JOE\MAIN\MODELS\PenmanMonteithHourly.jl\DATA\INPUT\Timoleague
 
 DayHour, DayHour_Reduced, Pet_Obs, Pet_Obs_Reduced, Pet_Sim, Pet_Sim_Reduced = PenmanMonteithHourly.PENMAN_MONTEITH_HOURLY_RUN(;Path_Toml, α = 0.23, 🎏_Debug=false);
 ```
-
-

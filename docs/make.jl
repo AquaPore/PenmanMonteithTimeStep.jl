@@ -14,10 +14,15 @@ makedocs(;
         assets=String[],
     ),
     pages=[
-        "Home" => "index.md",
+        "Home" => "KeyFeatures.md",
+
         "Quickstart" => [
-            "GettingStarted1" => "GettingStarted_1.md",
-            "GettingStarted2" => "GettingStarted_2.md",],
+            "Installation Guide & examples" => "InstallationGuide.md",
+            "Input output" => "Input Output Data.md"],
+
+        "Model" => [
+            "PenmanMonteith Equations" => "Equation.md"
+        ]
     ],
 )
 

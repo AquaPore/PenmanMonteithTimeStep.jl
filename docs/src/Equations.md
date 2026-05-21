@@ -1,11 +1,4 @@
-## Key features
-
-* Adjust output to any time step provided by the input file (smaller or equal than a day);
-* Correct for missing data by performing linear interpolation;
-* Flags missing data were interpolation is done erroneously;
-* Table output to time step of interest ΔT (for example the input can be every 10 minutes and the outputs can be daily);
-* Options for each simulation are recorded in TOML;
-* Parameters can be modified in TOML
+* 
 
 ## Input data
 

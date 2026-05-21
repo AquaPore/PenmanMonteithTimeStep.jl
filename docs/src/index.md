@@ -1,5 +1,4 @@
 # PenmanMonteithTimeStep.jl
 
-Documentation2 for PenmanMonteithTimeStep.jl
+Documentation for PenmanMonteithTimeStep.jl software
 
-Testing document3
