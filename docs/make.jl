@@ -17,11 +17,11 @@ makedocs(;
         "KeyFeatures.md",
         "Quickstart" => [
             "Installation Guide & examples" => "InstallationGuide.md",
-            "Input output" => "Input Output Data.md"],
+            "Input output" => "Input Output Data.md",],
 
         "Model" => [
-            "PenmanMonteith Equations" => "Equations.md"
-        ]
+            "PenmanMonteith Equations" => "Equations.md",
+        ],
     ],
 )
 
