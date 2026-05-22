@@ -26,7 +26,7 @@ Description of the function
 """
 function PLOT_PET(; ∑Pet_Obs_Reduced, ∑Pet_Sim_Reduced, DayHour_Reduced, Nmeteo_Reduced, flag, path, output, Pet_Obs_Reduced, Pet_Sim_Reduced)
 
-   Line = range(0.0, stop=maximum(Pet_Obs_Reduced), length=100)
+   Line = range(0.0, stop=maximum(Pet_Obs_Reduced), length=100) 
 
    Step = Int64(ceil(Nmeteo_Reduced / 30))
    X_Ticks = 1:Step:Nmeteo_Reduced
