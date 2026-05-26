@@ -1,6 +1,6 @@
-## Quick start
+# Quick start
 
-### Installing the package
+## Installing the package
 
 Install the package by typing:
 
@@ -9,17 +9,15 @@ Install the package by typing:
 add PenmanMonteithHourly
 ```
 
-The instructions are found in [Manual](https://aquapore.github.io/PenmanMonteithHourly.jl/stable/)
-
-Then to use it:
+Then to use the package:
 
 ```julia
 using PenmanMonteithHourly
 ```
 
-### Running the model with examples
+## Running the model with examples
 
-#### Step 1
+### Step 1
 
 **The following climate input csv data file can be downloaded:**
 
