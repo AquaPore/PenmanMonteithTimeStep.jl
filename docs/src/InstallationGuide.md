@@ -68,7 +68,7 @@ download(Toml_url, Toml_path)
 
 If required Modify the toml [path] to get the correct names of the files if
 
-#### Step 4 $\alpha$
+#### Step 4
 
 Run the code, as an option you could modify the [path] of the toml file `Ballycanew_PetOption.toml`\
 

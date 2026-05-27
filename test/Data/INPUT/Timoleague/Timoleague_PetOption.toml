@@ -1,17 +1,17 @@
 [path]
-   StationName                  = "Ballycanew"
+   StationName                  = "Timoleague"
    Path_Input                   = "DATA\\INPUT"
    Path_Output                  = "DATA\\OUTPUT"
-   Filename_Input_ClimateCsv    = "Ballycanew_Climate_Minute.csv"
-   Filename_Output_Plot         = "Ballycanew_Pet_10minutes.svg"
-   Filename_Output_TableCsv     = "Ballycanew_Pet_10minutes.csv"
-   "Filename_Output_TableΔTCsv" = "Ballycanew_Pet_ΔToutput.csv" # COutput csv table with timestep ΔT_Output
+   Filename_Input_ClimateCsv    = "Timoleague_Climate_Minute.csv"
+   Filename_Output_Plot         = "Timoleague_Pet_10minutes.svg"
+   Filename_Output_TableCsv     = "Timoleague_Pet_10minutes.csv"
+   "Filename_Output_TableΔTCsv" = "Timoleague_Pet_ΔToutput.csv" # COutput csv table with timestep ΔT_Output
 
 [date]
    # Id_Start = 1 # 1 167906
    # Id_End   = 279835 # 279835 257335
-	Date_Start = [2020,9,1,0,0] # Starting date of simulation [Year, Month, Day, Hour, Minute]
-	Date_End = [2026,1,26,7,0]   # Ending date of simulation [Year, Month, Day, Hour, Minute]
+	Date_Start = [2023,1,1,0,0] # Starting date of simulation [Year, Month, Day, Hour, Minute]
+	Date_End = [2023,12,31,7,0]   # Ending date of simulation [Year, Month, Day, Hour, Minute]
 
 [flag]
    "🎏_PetObs"   = true # <true> or <false> if having observed PET
