@@ -18,7 +18,7 @@ Base.@kwdef mutable struct METEO
    # Maximum temperature [⁰C]
    Temp::Vector{Float64}
    # Minimum temperature [⁰C]
-   TempSoil::Vector{Float64}
+   # TempSoil::Vector{Float64}
    # Velocity of wind speed [M S⁻¹]
    Wind::Vector{Float64}
    # Data which are missing and which were artficially filled
@@ -144,7 +144,7 @@ function READ_WEATHER(; date, path, flag, missings, param)
 
    RelativeHumidity₀, 🎏_DataMissing = Read.FINDING_9999(; Input=RelativeHumidity₀, DayHour, Nmeteo, missings, 🎏_DataMissing, Error=missings.MissingValue)
    Temp₀, 🎏_DataMissing = Read.FINDING_9999(; Input=Temp₀, DayHour, Nmeteo, missings, 🎏_DataMissing, Error=missings.MissingValue)
-   TempSoil₀, 🎏_DataMissing = Read.FINDING_9999(; Input=TempSoil₀, DayHour, Nmeteo, missings, 🎏_DataMissing, Error=missings.MissingValue)
+   # TempSoil₀, 🎏_DataMissing = Read.FINDING_9999(; Input=TempSoil₀, DayHour, Nmeteo, missings, 🎏_DataMissing, Error=missings.MissingValue)
    Wind₀, 🎏_DataMissing = Read.FINDING_9999(; Input=Wind₀, DayHour, Nmeteo, missings, 🎏_DataMissing, Error=missings.MissingValue)
 
    if flag.🎏_PetObs
@@ -186,7 +186,7 @@ function READ_WEATHER(; date, path, flag, missings, param)
       SolarRadiation₀[iT] = max(SolarRadiation₀[iT] - 0.1, 0.0)
    end # for iT=1:Nmeteo
 
-   meteo = METEO(Id=Id₀, RelativeHumidity=RelativeHumidity₀, SolarRadiation=SolarRadiation₀, Temp=Temp₀, TempSoil=TempSoil₀, Wind=Wind₀, 🎏_DataMissing=🎏_DataMissing)
+   meteo = METEO(Id=Id₀, RelativeHumidity=RelativeHumidity₀, SolarRadiation=SolarRadiation₀, Temp=Temp₀, Wind=Wind₀, 🎏_DataMissing=🎏_DataMissing)
 
    return DayHour, meteo, Nmeteo, Pet_Obs, ΔT
 end # function READ_WEATHER

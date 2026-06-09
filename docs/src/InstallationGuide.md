@@ -20,13 +20,17 @@ or
 add https://github.com/AquaPore/PenmanMonteithTimeStep.jl.git
 ```
 
+or
+
+>
+
 Then to use the package:
 
 ```julia
 using PenmanMonteithHourly
 ```
 
-## Running the model with examples
+## Running the model with an example
 
 ### Step 1
 
@@ -70,11 +74,7 @@ download(Toml_url, Toml_path)
 
 #### Step 3
 
-If required modify the toml [path] to get the desired path
-
-#### Step 4
-
-Run the code, as an option you could modify the [path] of the toml file `Timoleague_PetOption.toml`\
+Run the code, as an option you could modify the [path] of the toml file `Timoleague_PetOption.toml`
 
 ```julia
 using  PenmanMonteithTimeStep

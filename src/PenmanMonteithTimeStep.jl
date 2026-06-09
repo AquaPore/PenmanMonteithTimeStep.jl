@@ -149,7 +149,7 @@ function PENMAN_MONTEITH(; cst, DayHour, flag, iT, meteo, param, ΔT₁)
 	RelativeHumidity = meteo.RelativeHumidity[iT]
 	Radₛᵣ = meteo.SolarRadiation[iT]
 	Temp = meteo.Temp[iT]
-	TempSoil = meteo.TempSoil[iT]
+	# TempSoil = meteo.TempSoil[iT]
 	Wind = meteo.Wind[iT]
 	DateTimeMinute = DayHour[iT]
 
