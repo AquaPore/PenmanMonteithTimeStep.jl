@@ -20,9 +20,6 @@ or
 add https://github.com/AquaPore/PenmanMonteithTimeStep.jl.git
 ```
 
-or
-
->
 
 Then to use the package:
 

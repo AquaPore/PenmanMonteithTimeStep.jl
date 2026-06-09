@@ -15,7 +15,7 @@ makedocs(;
     pages=[
         "KeyFeatures.md",
         "Quickstart" => [
-            "Installation Guide & examples" => "InstallationGuide.md",
+            "Installation" => "InstallationGuide.md",
             "Input output" => "InputOutputData.md",],
 
         "Model" => [
