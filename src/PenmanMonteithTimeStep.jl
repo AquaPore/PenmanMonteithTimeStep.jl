@@ -205,11 +205,11 @@ end # module PenmanMonteithTimeStep
 
 # Path_Toml = raw"D:\JOE\MAIN\MODELS\PenmanMonteithTimeStep.jl\DATA\INPUT\CregduffWest\CregduffWest_PetOption.toml"
 
-# # Ballycanew
 # Path_Toml = raw"D:\JOE\MAIN\MODELS\PenmanMonteithTimeStep.jl\DATA\INPUT\Ballycanew\Ballycanew_PetOption.toml"
 # Path_Toml = raw"D:\JOE\MAIN\MODELS\PenmanMonteithTimeStep.jl\DATA\INPUT\Castledockerell\Castledockerell_PetOption.toml"
 # Path_Toml = raw"D:\JOE\MAIN\MODELS\PenmanMonteithTimeStep.jl\DATA\INPUT\Timoleague\Timoleague_PetOption.toml"
 # # Path_Toml = raw"D:\JOE\MAIN\MODELS\PenmanMonteithTimeStep.jl\DATA\INPUT\Dunleer\Dunleer_PetOption.toml"
 
+# DayHour, DayHour_Reduced, Pet_Obs, Pet_Obs_Reduced, Pet_Sim, Pet_Sim_Reduced = PenmanMonteithTimeStep.PENMAN_MONTEITH_HOURLY_RUN(;Path_Toml)
 # resolve
 

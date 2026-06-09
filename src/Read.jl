@@ -65,14 +65,14 @@ function READ_WEATHER(; date, path, flag, missings, param)
    RelativeHumidity₀ = convert(Union{Vector,Missing}, Tables.getcolumn(Data₀, Symbol.("Humidity[%]")))
    SolarRadiation₀ = convert(Union{Vector,Missing}, Tables.getcolumn(Data₀, Symbol.("SolarRadiation[W/m²]")))
    Temp₀ = convert(Union{Vector,Missing}, Tables.getcolumn(Data₀, Symbol.("AirTemperature[°C]")))
-   TempSoil₀ = convert(Union{Vector,Missing}, Tables.getcolumn(Data₀, Symbol.("SoilTemperature[°C]")))
+   # TempSoil₀ = convert(Union{Vector,Missing}, Tables.getcolumn(Data₀, Symbol.("SoilTemperature[°C]")))
    Wind₀ = convert(Union{Vector,Missing}, Tables.getcolumn(Data₀, Symbol.("WindSpeed[m/s]")))
 
    if flag.🎏_PetObs && ("PotentialEvapotranspiration[mm]" ∈ names(Data₀))
       Pet_Obs = convert(Union{Vector,Missing}, Tables.getcolumn(Data₀, Symbol.("PotentialEvapotranspiration[mm]")))
    else
       if !(flag.🎏_PetObs)
-         printstyled("@warning  \n"; color=:orange)
+         printstyled("@warning  no Pet observed\n"; color=:orange)
       end
       Pet_Obs = zeros(Nmeteo₀)
    end
@@ -84,16 +84,13 @@ function READ_WEATHER(; date, path, flag, missings, param)
 
    DateEnd = Dates.DateTime(Dates.Year(date.Date_End[1]), Dates.Month(date.Date_End[2]), Dates.Day(date.Date_End[3]), Dates.Hour(date.Date_End[4]), Dates.Minute(date.Date_End[5]))
 
-   🎏_Warn= true # Not to repeate the warning
+   🎏_Warn= false # Not to repeate the warning
    for iT ∈ 1:Nmeteo₀
       if DateStart ≤ DayHour[iT] ≤ DateEnd
          DateTrue[iT] = true
       else
          DateTrue[iT] = false
-         if 🎏_Warn
-            @warn "Dates starting $(DateStart) and ending $(DateEnd)"
-            🎏_Warn = false
-         end
+         🎏_Warn = true
       end
    end # for iT=1:Nmeteo₀
    Nmeteo = sum(DateTrue)
@@ -105,9 +102,15 @@ function READ_WEATHER(; date, path, flag, missings, param)
    RelativeHumidity₀ = RelativeHumidity₀[DateTrue]
    SolarRadiation₀   = SolarRadiation₀[DateTrue]
    Temp₀             = Temp₀[DateTrue]
-   TempSoil₀         = TempSoil₀[DateTrue]
+   # TempSoil₀         = TempSoil₀[DateTrue]
    Wind₀             = Wind₀[DateTrue]
    Pet_Obs           = Pet_Obs[DateTrue]
+   TempSoil₀ = [] # for future use
+
+   if 🎏_Warn
+      println("Dates starting $(DayHour[1]) and ending $(DayHour[end])")
+      🎏_Warn = false
+   end
 
    # TIME-STEP
    ΔT = zeros(Float64, Nmeteo)
