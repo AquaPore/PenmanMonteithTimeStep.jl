@@ -23,7 +23,7 @@
 		"🎏_Table"    = true # <true> or <false> if tables in csv
 
 [output]
-   "ΔT_Output" = 86400 # 86400 [mm] time step of output starting at Date_Start
+   "ΔT_Output" = 86400 # 86400 [seconds] time step of output starting at Date_Start
 
 [missings]
    "ΔTmax_Missing" = 14400 # [second] maximum time were there is consecutative data missing before flagged as missing
