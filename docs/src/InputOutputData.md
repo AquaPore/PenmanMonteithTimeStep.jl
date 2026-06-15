@@ -1,5 +1,5 @@
 ---
-title: Input & output
+# Input & output
 ---
 
 ## Input data
@@ -22,7 +22,6 @@ The Table below shows the input data:
 | AirTemperature              | [°C]-  | -                                                                                  |
 | WindSpeed                   | [m/s]  | -                                                                                  |
 | PotentialEvapotranspiration | [mm]   | Observed data. If you do not have observed data keep it blank, but keep the header |
-:{.striped .hover}
 
 ### Interpolation of missing data
 
@@ -50,4 +49,4 @@ In the folder 'Data/OUTPUT/'.  There are two outputs files:
 | Pet_Sim                      | [mm/ TimeStep] | -                                                                                                                                                                               |
 | Potential evapotranspiration | [mm]           | -                                                                                                                                                                               |
 | 🎏_DataMissing              | [Bool]         | `Flag` that the output has heigh uncertainty due to interpolated of missing data. `🎏_DataMissing=true` when the missing data is greater than `[toml][missing][ΔTmax_Missing]` |
-:{.striped .hover}
+

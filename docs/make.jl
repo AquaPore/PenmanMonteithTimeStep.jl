@@ -16,7 +16,9 @@ makedocs(;
         "KeyFeatures.md",
         "Quickstart" => [
             "Installation" => "InstallationGuide.md",
-            "Input output" => "InputOutputData.md",],
+            "Input output" => "InputOutputData.md",
+            "Options" => "Options.md",],
+
 
         "Model" => [
             "PenmanMonteith Equations" => "Equations.md",
