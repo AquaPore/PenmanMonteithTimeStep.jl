@@ -6,28 +6,36 @@ It is reminded that
 $1 W = 1 J s^{-1}$
 
 ## Physical constants: [cst]
+
 ---
 
-| Param    |      Units       | Value                     | Description                                    |
-| :------- | :--------------: | :------------------------ | :--------------------------------------------- |
-| Cₚ       |  [J kg-1 °C-1]   | 1013.0                    | Cp                                             |
-| Gsc      | [J m-2 second⁻¹] | 82000                     | Solar constant                                 |
-| Karmen   |       [-]        | 0.41                      | Karmen                                         |
-| T_Kelvin |     [Kelvin]     | 273.15                    | Conversion from C to Kelvin                    |
-| σ        |   [W m−2 K−4]    | 0.00000005674768518518519 | Stefan-Boltzmann constant                      |
-| ϵ        |       [-]        | 0.622                     | ratio molecular weight of water vapour/dry air |
-| ℜ        |   [J kg-1 K-1]   | 287                       | specific gas constant                          |
-| ρwater   |     [kg m-3]     | 1000                      | density of water                               |
+| Param    |       Units       | Value         | Description                                    |
+| :------- | :----------------: | :------------ | :--------------------------------------------- |
+| Cₚ      |   [J kg-1 °C-1]   | 1013.0        | Cp                                             |
+| Gsc      | [J m-2 second⁻¹] | 82000         | Solar constant                                 |
+| Karmen   |        [-]        | 0.41          | Karmen                                         |
+| T_Kelvin |      [Kelvin]      | 273.15        | Conversion from C to Kelvin                    |
+| σ       |   [W m−2 K−4]   | 0.00000005674 | Stefan-Boltzmann constant                      |
+| ϵ       |        [-]        | 0.622         | ratio molecular weight of water vapour/dry air |
+| ℜ       |    [J kg-1 K-1]    | 287           | specific gas constant                          |
+| ρwater  |      [kg m-3]      | 1000          | density of water                               |
 
 ## Path: [path]
 
-StationName                  = "Timoleague"
-Path_Input                   = "DATA\\INPUT"
-Path_Output                  = "DATA\\OUTPUT"
-Filename_Input_ClimateCsv    = "Timoleague_Climate_Minute.csv"
-Filename_Output_Plot         = "Timoleague_Pet_10minutes.svg"
-Filename_Output_TableCsv     = "Timoleague_Pet_10minutes.csv"
-"Filename_Output_TableΔTCsv" = "Timoleague_Pet_ΔToutput.csv" # COutput csv table with timestep ΔT_Output
+As provided in the example:
+
+| Param                       |  Example                       |  Description                                 |
+| --------------------------- | ------------------------------ | -------------------------------------------- |
+| StationName                 |  Timoleague                    |  -                                           |
+| Path_Input                  |  DATA\\INPUT                   |  -                                           |
+| Path_Output                 |  DATA\\OUTPUT                  |  -                                           |
+| Filename_Input_ClimateCsv   |  Timoleague_Climate_Minute.csv |  -                                           |
+| Filename_Output_Plot        | Timoleague_Pet_10minutes.svg   |  -                                           |
+| Filename_Output_TableCsv    |  Timoleague_Pet_10minutes.csv  |  Time step as provided by input file         |
+| Filename_Output_TableΔTCsv |  Timoleague_Pet_ΔToutput.csv  |  Time step as provided in [output]ΔT_Output |
+
+
+---
 
 ## Date [date]
 
@@ -35,11 +43,12 @@ Filename_Output_TableCsv     = "Timoleague_Pet_10minutes.csv"
 Date_Start = [2023,1,1,0,0] # Starting date of simulation [Year, Month, Day, Hour, Minute]
 Date_End = [2023,12,31,0,0]   # Ending date of simulation [Year, Month, Day, Hour, Minute]
 ```
+
 ## Flags [flag]
+
 "🎏_PetObs"   = true # <true> or <false> if having observed PET
 "🎏_RaParam" = true # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₐ_INV_AERODYNAMIC_RESISTANCE(...)
 "🎏_RsParam" = false # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₛ_SURFACE_RESISTANCE(...)
-
 
 ```
 # Outputs
@@ -63,7 +72,7 @@ Zaltitude             = 26.0 # [m] altitude;
 SoilHeatFlux_Sunlight = 0.2 # 0.1 [-] Adjustment of soil heat flux parameters
 SoilHeatFlux_Night    = 0.5  # 0.6[-] Adjustment of soil heat flux parameters
 
- *** IF <🎏_Ra_Param> = true
+*** IF <🎏_Ra_Param> = true
 
 ```
   RaParam              = 300.0 # 208.0  aerodynamic resistance to turbulent
@@ -80,13 +89,17 @@ ELSE
  *** IF <🎏_RS_Param> = true
 
 ```
-  "Rₛ"  = 90.0 # [s m-1] 40 - 70.0
+
+"Rₛ"  = 90.0 # [s m-1] 40 - 70.0
+
 ```
 
 ELSE
 
 ```
-  R_Stomatal          = 140.0 # <70-90> stomatal resistance of the well-illuminated leaf [s m⁻¹]
+
+R_Stomatal          = 140.0 # <70-90> stomatal resistance of the well-illuminated leaf [s m⁻¹]
+
 ```
 
 # --------------------------------------------
@@ -94,3 +107,4 @@ ELSE
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 
+```
