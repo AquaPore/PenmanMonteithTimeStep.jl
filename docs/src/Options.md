@@ -22,39 +22,39 @@ $1 W = 1 J s^{-1}$
 
 ## Path: [path]
 
-As provided in the example:
-
-| Param                       |  Example                       |  Description                                 |
-| --------------------------- | ------------------------------ | -------------------------------------------- |
-| StationName                 |  Timoleague                    |  -                                           |
-| Path_Input                  |  DATA\\INPUT                   |  -                                           |
-| Path_Output                 |  DATA\\OUTPUT                  |  -                                           |
-| Filename_Input_ClimateCsv   |  Timoleague_Climate_Minute.csv |  -                                           |
-| Filename_Output_Plot        | Timoleague_Pet_10minutes.svg   |  -                                           |
-| Filename_Output_TableCsv    |  Timoleague_Pet_10minutes.csv  |  Time step as provided by input file         |
-| Filename_Output_TableΔTCsv |  Timoleague_Pet_ΔToutput.csv  |  Time step as provided in [output]ΔT_Output |
-
-
+As provided in the example
 ---
+
+| Param                       | Example                       | Description                                 |
+| :-------------------------- | :---------------------------- | :------------------------------------------ |
+| StationName                 | Timoleague                    | -                                           |
+| Path_Input                  | DATA\\INPUT                   | -                                           |
+| Path_Output                 | DATA\\OUTPUT                  | -                                           |
+| Filename_Input_ClimateCsv   | Timoleague_Climate_Minute.csv | -                                           |
+| Filename_Output_Plot        | Timoleague_Pet_10minutes.svg  | -                                           |
+| Filename_Output_TableCsv    | Timoleague_Pet_10minutes.csv  | Time step as provided by input file         |
+| Filename_Output_TableΔTCsv | Timoleague_Pet_ΔToutput.csv  | Time step as provided in [output]ΔT_Output |
 
 ## Date [date]
 
-```
-Date_Start = [2023,1,1,0,0] # Starting date of simulation [Year, Month, Day, Hour, Minute]
-Date_End = [2023,12,31,0,0]   # Ending date of simulation [Year, Month, Day, Hour, Minute]
-```
+The start and end date of simulation which can be different than the one provided in the input file
+---
 
-## Flags [flag]
+| Param      | Example             | Description                                                  |
+| :---------- | :------------------- | :------------------------------------------------------------ |
+| Date_Start | [2023, 1, 1, 0, 0] | Starting date of simulation [Year, Month, Day, Hour, Minute] |
+| Date_Start | [2023, 12, 31, 0, 0]    | Ending date of simulation [Year, Month, Day, Hour, Minute]   |
 
-"🎏_PetObs"   = true # <true> or <false> if having observed PET
-"🎏_RaParam" = true # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₐ_INV_AERODYNAMIC_RESISTANCE(...)
-"🎏_RsParam" = false # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₛ_SURFACE_RESISTANCE(...)
+## Fags [flag]
 
-```
-# Outputs
-	"🎏_Plot"     = true # <true> or <false> if plotting
-	"🎏_Table"    = true # <true> or <false> if tables in csv
-```
+🎏_PetObs   = true # <true> or <false> if having observed PET
+🎏_RaParam = true # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₐ_INV_AERODYNAMIC_RESISTANCE(...)
+🎏_RsParam = false # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₛ_SURFACE_RESISTANCE(...)
+
+## Outputs
+
+🎏_Plot     = true # <true> or <false> if plotting
+🎏_Table    = true # <true> or <false> if tables in csv
 
 [output]
 "ΔT_Output" = 86400 # 86400 [mm] time step of output starting at Date_Start
