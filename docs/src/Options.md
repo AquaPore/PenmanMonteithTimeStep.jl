@@ -110,7 +110,7 @@ Could be modified
 
 | Param | Unit    | Value | Description            |
 | ----- | ------- | ----- | ---------------------- |
-| Rₛ    | [s m-1] | 90    | Aerodynamic resistance |
+| Rₛ    | [s m⁻¹] | 90    | Aerodynamic resistance |
 
 #### ***IF `🎏_RS_Param = false`***
 
@@ -130,11 +130,11 @@ Not recommended to modify.
 
 | Param    | Units            | Value        | Description                                    |
 | -------- | ---------------- | ------------ | ---------------------------------------------- |
-| Cₚ       | [J kg-1 °C-1]    | 1013.0       | Cp                                             |
+| Cₚ       | [J kg⁻¹ °C⁻¹]    | 1013.0       | Cp                                             |
 | Gsc      | [J m⁻2 second⁻¹] | 82000        | Solar constant                                 |
 | Karmen   | [-]              | 0.41         | Karmen                                         |
 | T_Kelvin | [-]              | 273.15       | Conversion from C to Kelvin                    |
 | σ        | [W m−2 K−4]      | 0.0000000567 | Stefan-Boltzmann constant                      |
 | ϵ        | [-]              | 0.622        | ratio molecular weight of water vapour/dry air |
-| ℜ        | [J kg-1 K-1]     | 287.0        | specific gas constant                          |
+| ℜ        | [J kg⁻¹ K⁻¹]     | 287.0        | specific gas constant                          |
 | ρwater   | [kg m-3]         | 1000.0       | density of water                               |
