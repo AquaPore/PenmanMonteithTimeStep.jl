@@ -8,19 +8,8 @@
    "Filename_Output_TableΔTCsv" = "Timoleague_Pet_ΔToutput.csv" # COutput csv table with timestep ΔT_Output
 
 [date]
-   # Id_Start = 1 # 1 167906
-   # Id_End   = 279835 # 279835 257335
 	Date_Start = [2023,1,1,0,0] # Starting date of simulation [Year, Month, Day, Hour, Minute]
 	Date_End = [2023,12,31,0,0]   # Ending date of simulation [Year, Month, Day, Hour, Minute]
-
-[flag]
-   "🎏_PetObs"   = true # <true> or <false> if having observed PET
-   "🎏_RaParam" = true # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₐ_INV_AERODYNAMIC_RESISTANCE(...)
-   "🎏_RsParam" = false # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₛ_SURFACE_RESISTANCE(...)
-
-	# Outputs
-		"🎏_Plot"     = true # <true> or <false> if plotting
-		"🎏_Table"    = true # <true> or <false> if tables in csv
 
 [output]
    "ΔT_Output" = 86400 # 86400 [seconds] time step of output starting at Date_Start
@@ -28,6 +17,17 @@
 [missings]
    "ΔTmax_Missing" = 14400 # [second] maximum time were there is consecutative data missing before flagged as missing
    MissingValue = -9999 # Value of missing data in the input
+
+[flag]
+   "🎏_PetObs"   = true # <true> or <false> if having observed PET
+
+   # Model used
+      "🎏_RaParam" = true # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₐ_INV_AERODYNAMIC_RESISTANCE(...)
+      "🎏_RsParam" = false # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₛ_SURFACE_RESISTANCE(...)
+
+	# Outputs
+		"🎏_Plot"     = true # <true> or <false> if plotting
+		"🎏_Table"    = true # <true> or <false> if tables in csv
 
 [param]
    Latitude              = 52.61582 # [degree]
