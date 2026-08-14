@@ -21,7 +21,7 @@ makedocs(;
 
 
         "Model" => [
-            "PenmanMonteith Equations" => "Equations.md",
+            "PenmanMonteith Equations" => "PenmanEquation.md",
         ],
     ],
 )

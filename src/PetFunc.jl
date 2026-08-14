@@ -20,7 +20,7 @@ Description of the function
 - `Cₚ`: Keyword description
 - `Eₐ`: Keyword description
 - `Eₛ`: Keyword description
-- `G`: Keyword description
+- `G()`:  [MJ m-2 hour-1] is the soil heat flux density computed by G_SOIL_HEAT_FLUX_HOURLY()
 - `Rₐ_Inv`: Keyword description
 - `ΔRadₙ`: Keyword description
 - `Rₛ`: Keyword description
