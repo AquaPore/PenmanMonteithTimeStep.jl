@@ -15,21 +15,22 @@ module penmanmonteith
 
 Description of the function
 
-# Keywords
+INPUT
+   * Cp     : [J kg⁻¹ °C⁻¹] specific heat at constant pressure.
+   * Eₐ     : [kPa] actual vapour pressure computed by Eₐ_ACTUAL_VAPOUR_PRESSURE_RH(; RelativeHumidity, Eₛ)
+   * Eₛ     : [kPa] saturation vapour pressure computed by Eₛ_SATURATION_VAPOUR_PRESSURE(; Temp)
+   * G()    : [MJ m⁻² hour⁻¹] is the soil heat flux density function computed by G_SOIL_HEAT_FLUX_HOURLY(; DateTimeMinute, Latitude, Longitude, ΔRadₙ, Zaltitude, SoilHeatFlux_Sunlight, SoilHeatFlux_Night)
+   * Rₐ_Inv : [m s⁻¹] inverse of the aerodynamic resistancecomputed by Rₐ_INV_AERODYNAMIC_RESISTANCE(; Hcrop, Karmen, Wind, Z_Humidity, Z_Wind)
+   * Rₛ     : [s m⁻¹] surface resistance computed by Rₛ_SURFACE_RESISTANCE(; R_Stomatal, Hcrop)
+   * Δ()    : [kPa°C⁻¹] slope of the relationship between saturation vapour pressure and temperature computed by Δ_SATURATION_VAPOUR_P_CURVE(; Temp)
+   * ΔRadₙ  : [MJ m⁻² hour⁻¹] net radiation at the crop surface computed by ΔRadₙ_NET_RADIATION(; Radₙₗ, Radₙₛ)
+   * γ      : [kPa°C⁻¹] psychrometric constant computed by γ_PSYCHROMETRIC_CONSTANT(; Pressure)
+   * λᵥ     : latent heat of vaporization which is the energy required to evaporize 1mm of water computed by λ_LATENT_HEAT_VAPORIZATION(; Temp)
+	* ρwater = 1000 kg m⁻³ density of water
+   * ρₐᵢᵣ() : atmospheric density at constant pressure function computed by ρₐᵢᵣ_AIR_DENSITY(; Eₐ, Pressure, ℜ, T_Kelvin, Temp)
 
-- `Cₚ`: Keyword description
-- `Eₐ`: Keyword description
-- `Eₛ`: Keyword description
-- `G()`:  [MJ m-2 hour-1] is the soil heat flux density computed by G_SOIL_HEAT_FLUX_HOURLY()
-- `Rₐ_Inv`: Keyword description
-- `ΔRadₙ`: Keyword description
-- `Rₛ`: Keyword description
-- `γ`: Keyword description
-- `Δ`: Keyword description
-- `λᵥ`: Keyword description
-- `ρₐᵢᵣ`: Keyword description
-- `ΔT₁`: Keyword description
-- `ρwater`: Keyword description
+OUTPUT
+	* ETₒ: [mm J m⁻² ΔT⁻¹] is the reference evapotranspiration computed by the Penman-Monteith equation for hourly or shorter time steps.
 """
 	function PET_PENMAN_MONTEITH_HOURLY(; Cₚ, Eₐ, Eₛ, G, Rₐ_Inv, ΔRadₙ, Rₛ, γ, Δ, λᵥ, ρₐᵢᵣ, ΔT₁, ρwater)
 

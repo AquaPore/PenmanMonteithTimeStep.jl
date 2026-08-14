@@ -17,7 +17,7 @@ The Table below shows the input data:
 | Day                         | -      | -                                                                                  |
 | Hour                        | -      | -                                                                                  |
 | Minute                      | -      | -                                                                                  |
-| Humidity                    | [%]    | -                                                                                  |
+| Humidity                    | [0-1]    | -                                                                                  |
 | SolarRadiation              | [W/m²] | -                                                                                  |
 | AirTemperature              | [°C]-  | -                                                                                  |
 | WindSpeed                   | [m/s]  | -                                                                                  |

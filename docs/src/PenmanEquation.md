@@ -1,5 +1,3 @@
-*
-
 ## Input data
 
 As provided as an example in the input csv file. The time steps does not have to be constant but msut be less than a day
@@ -14,98 +12,25 @@ As provided as an example in the input csv file. The time steps does not have to
 * AirTemperature[°C]
 * WindSpeed[m/s]
 
-## Output
-
-Outputs in *.csv* for non iterpolated (same time step) and interpolated output with can be given different time step than as in the inputfile. The PET output is always positive.
-
-* Dates
-* Potential evapotranspiration [mm]
-* 🎏_DataMissing
-
-# Options
-
-see .toml file
-
-```julia
-[path]
-Path_Input       = "DATA\\INPUT\\DataMinute\\Timoleague_Climate_Minute.csv"
-Path_Output_Plot = "DATA\\OUTPUT\\Timoleague_Pet_10minutes.svg"
-Path_Output_Csv  = "DATA\\OUTPUT\\Timoleague_Pet_10minutes.csv"
-"Path_Output_ΔToutput_Csv"  = "DATA\\OUTPUT\\Timoleague_Pet_ΔToutput.csv" # COutput csv table with timestep ΔT_Output
-
-[date]
-Date_Start = [2020,10,1,0,0] # Starting date of simulation [Year, Month, Day, Hour, Minute]
-Date_End = [2026,1,26,7,0]   # Ending date of simulation [Year, Month, Day, Hour, Minute]
-[flag]
-"🎏_PetObs"   = false # <true> or <false> if having observed PET
-"🎏_RaParam" = true # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₐ_INV_AERODYNAMIC_RESISTANCE(...)
-"🎏_RsParam" = false # <true> or <false> if <false> then computed with petFunc.aerodynamic.Rₛ_SURFACE_RESISTANCE(...)
-
-# Outputs
-	"🎏_Plot"     = true # <true> or <false> if plotting
-	"🎏_Table"    = false # <true> or <false> if tables in csv
-[output]
-"ΔT_Output" = 86400 # 86400 [mm] time step of output starting at Date_Start
-
-[missings]
-"ΔTmax_Missing" = 14400 # [second] maximum time were there is consecutative data missing before flagged as missing
-MissingValue = -9999 # Value of missing data in the input
-
-[param]
-Latitude              = 51.61666666666667 # [degree]
-Longitude             = -7.116666666666667 # [degree]
-Longitude_LocalTime   = 0.0 # Longitude of center of time zone East to west e.g. greenwich
-Zaltitude             = 100.0 # [m] altitude;
-"α"                   = 0.25 # 0.23 [-] albedo or canopy reflection coefficient
-SoilHeatFlux_Sunlight = 0.2 # 0.1 [-] Adjustment of soil heat flux parameters
-SoilHeatFlux_Night    = 0.5  # 0.6[-] Adjustment of soil heat flux parameters
-
-# *** IF <🎏_Ra_Param> = true
-
-  RaParam              = 300.0 # 208.0  aerodynamic resistance to turbulent
-# ELSE
-
-  Hcrop               = 0.1 # [m] height of the crop
-  Z_Humidity          = 2.0 # [m] height from ground of measuring humidity;
-  Z_Wind              = 2.0 # [m] height from ground of measuring wind;
-# --------------------------------------------
-
-# *** IF <🎏_RS_Param> = true
-
-  "Rₛ"  = 90.0 # [s m-1] 40 - 70.0
-# ELSE
-
-  R_Stomatal          = 140.0 # <70-90> stomatal resistance of the well-illuminated leaf [s m⁻¹]
-# --------------------------------------------
-
-# ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
-
-[cst]
-"Cₚ"     = 1013.0 # [J kg-1 °C-1]
-Gsc      = 82000.0 # [J m-2 second⁻¹] Solar constant
-Karmen   = 0.41 # 0.41 [-]
-T_Kelvin = 273.15 # Conversion from C to Kelvin
-"σ"      = 0.00000005674768518518519 # [W m−2 K−4] Stefan-Boltzmann constant
-"ϵ"      = 0.622 # [-] ratio molecular weight of water vapour/dry air
-"ℜ"      = 287.0 # [J kg-1 K-1] specific gas constant
-"ρwater" = 1000.0 # [kg m-3] density of water
-
-```
-
 # MODEL
 
 The Penman-Monteith model is written as follow:
 
 ```math
-ETₒ=\frac{\varDelta (\varDelta _{Radₙ}-G)+\frac{\rho _{ₐᵢᵣ}\,\,C_ₚ(Eₛ-Eₐ)}{Rₐ}}{\varDelta +\gamma \,\,\left( 1+\frac{Rₛ}{Rₐ} \right) \,\,\lambda _ᵥ\,\,\rho _{water}}
+\varDelta E_{tp}=\frac{\varDelta (\varDelta R_{\mathrm{adₙ}}-G)+\rho _{\mathrm{ₐᵢᵣ}}C_{\mathrm{ₚ}}\frac{\left[ E_{\mathrm{ₛ}}-E_{\mathrm{ₐ}} \right]}{R\mathrm{ₐ}}}{\lambda .\rho _{\mathrm{water}}\left[ \varDelta +\gamma \left( 1+\frac{R\mathrm{ₛ}}{R\mathrm{ₐ}} \right) \right]}
 ```
 
-# RUN MODEL
+Where
 
-```julia
-include("src/PenmanMonteithHourly.jl")
-Path_Toml = raw"DATA\PARAMETER\PetOption.toml"
-DayHour, DayHour_Reduced, Pet_Obs, Pet_Obs_Reduced, Pet_Sim, Pet_Sim_Reduced = pet.PenmanMonteithHourly(;Path_Toml, α=0.23);
-```
-
-# TODO
+* **Cp**     : [J kg⁻¹ °C⁻¹] specific heat at constant pressure.
+* **Eₐ**     : [kPa] actual vapour pressure computed by Eₐ_ACTUAL_VAPOUR_PRESSURE_RH(; RelativeHumidity, Eₛ)
+* **Eₛ**     : [kPa] saturation vapour pressure computed by Eₛ_SATURATION_VAPOUR_PRESSURE(; Temp)
+* **G()**    : [MJ m⁻² hour⁻¹] is the soil heat flux density function computed by G_SOIL_HEAT_FLUX_HOURLY(; DateTimeMinute, Latitude, Longitude, ΔRadₙ, Zaltitude, SoilHeatFlux_Sunlight, SoilHeatFlux_Night)
+* **Rₐ_Inv :** [m s⁻¹] inverse of the aerodynamic resistancecomputed by Rₐ_INV_AERODYNAMIC_RESISTANCE(; Hcrop, Karmen, Wind, Z_Humidity, Z_Wind)
+* **Rₛ     :** [s m⁻¹] surface resistance computed by Rₛ_SURFACE_RESISTANCE(; R_Stomatal, Hcrop)
+* **Δ()    :** [kPa°C⁻¹] slope of the relationship between saturation vapour pressure and temperature computed by Δ_SATURATION_VAPOUR_P_CURVE(; Temp)
+* **ΔRadₙ  :** [MJ m⁻² hour⁻¹] net radiation at the crop surface computed by ΔRadₙ_NET_RADIATION(; Radₙₗ, Radₙₛ)
+* **γ      :** [kPa°C⁻¹] psychrometric constant computed by γ_PSYCHROMETRIC_CONSTANT(; Pressure)
+* **λᵥ     :** latent heat of vaporization which is the energy required to evaporize 1mm of water computed by λ_LATENT_HEAT_VAPORIZATION(; Temp)
+  * ρwater = 1000 kg m⁻³ density of water
+* **ρₐᵢᵣ() :** atmospheric density at constant pressure function computed by ρₐᵢᵣ_AIR_DENSITY(; Eₐ, Pressure, ℜ, T_Kelvin, Temp)

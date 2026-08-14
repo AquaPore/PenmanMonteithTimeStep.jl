@@ -57,7 +57,7 @@
 # 1 W = 1 J s-1`
 
 [cst]
-   "Cₚ"     = 1013.0 # [J kg-1 °C-1]
+   "Cₚ"     = 1013.0 # [J kg-1 °C-1]  specific heat at constant pressure,
    Gsc      = 82000.0 # [J m-2 second⁻¹] Solar constant
    Karmen   = 0.41 # 0.41 [-]
    T_Kelvin = 273.15 # Conversion from C to Kelvin
